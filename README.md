@@ -1,5 +1,17 @@
 # ihavetogo
-An app for rating public restrooms
+An app for rating public restrooms.
+
+## Tech Used
++ Ruby on Rails
++ AngularJS
++ Leaflet API
++ JBuilder
+
+## Approach Taken
+We are awesome.
+
+## Unsolved Problems
+Everything so far.
 
 ## Goals
 ### Bronze:
@@ -9,6 +21,7 @@ An app for rating public restrooms
 - Toilets have a location, accessibility status, cleanliness rating, overall rating, wait time, and comments
 - All ratings are represented with stars (1-5)
 - New and Show pages are shown on a separate page
+- Put our contact info on site so fans can tell us how awesome we are and employers can hire us.
 
 ### Silver
 - In a user comment, the user can also add a cleanliness rating and an overall rating
