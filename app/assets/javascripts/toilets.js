@@ -6,11 +6,12 @@ angular
   .controller('ToiletController', ToiletController)
   .factory('toiletFactory', toiletFactory);
 
-function ToiletController(toiletsService) {
+function ToiletController(toiletService) {
     var vm = this;
     vm.toilets = [];
     vm.createToilet = createToilet;
     vm.findToilet = findToilet;
+    vm.updateToilet = updateToilet;
     vm.title = 'Toilets';
 
     createToilet();
@@ -25,6 +26,12 @@ function ToiletController(toiletsService) {
     function findToilet() {
 
     }
+
+    function updateToilet() {
+
+    }
+
+
 
   }
 }

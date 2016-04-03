@@ -8,3 +8,28 @@
 
 <div>
 </div>
+
+<!doctype html>
+<html data-ng-app="iHaveToGo">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script src="toilets.js"></script>
+    <link rel="stylesheet" href="toilet.scss">
+  </head>
+  <body>
+    <h2>Toilet </h2>
+    <div data-ng-controller="ToiletController as toilet">
+      <span> {{toilet.name}} {{toilet.location}} </span>
+
+      [ <a href="" ng-click="toilet.archive()">archive</a> ]
+     <ul class="unstyled">
+       <li ng-repeat="todo in todoList.todos">
+         <label class="checkbox">
+
+      <label>iHaveToGo</label>
+      <input type="text" ng-model="ihavetogobad">
+      <hr>
+      <h1>Do You Have to Go? {{ihavetogobad}}!</h1>
+    </div>
+  </body>
+</html>
