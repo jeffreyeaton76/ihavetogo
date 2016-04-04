@@ -1,0 +1,25 @@
+<h2>Create Toilet</h2>
+
+<form>
+  <input placeholder="Business Name" data-ng-model="ToiletNewViewModel.toilet.businessname" />
+  <input placeholder="Street Address" data-ng-model="ToiletNewViewModel.toilet.street" />
+  <input placeholder="City" data-ng-model="ToiletNewViewModel.toilet.city"/>
+  <input placeholder="State" data-ng-model="ToiletNewViewModel.toilet.state"/>
+  <input placeholder="Changing Table" data-ng-model="ToiletNewViewModel.toilet.changing_table"/>
+<br>
+<br>
+  <input placeholder="Cleanliness" data-ng-model="ToiletNewViewModel.toilet.cleanliness"/>
+<br>
+<br>
+  <input placeholder="Handicap" data-ng-model="ToiletNewViewModel.toilet.handicapped"/>
+  <input placeholder="LGBT Friendly" data-ng-model="ToiletNewViewModel.toilet.lgbt_friendly"/>
+  <input placeholder="Unisex" data-ng-model="ToiletNewViewModel.toilet.unisex"/>
+  <input placeholder="City" data-ng-model="ToiletNewViewModel.toilet.city"/>
+<br>
+<br>
+  <input placeholder="Wait Time" data-ng-model="ToiletNewViewModel.toilet.wait_time"/>
+<br>
+<br>
+  <textarea placeholder="Toilet Description" data-ng-model="ToiletNewViewModel.toilet.description"></textarea>
+  <button type="button" data-ng-click="ToiletNewViewModel.create()">Create</button>
+</form>

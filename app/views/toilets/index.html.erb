@@ -1,15 +1,35 @@
-<h1> iHaveToGo</h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>iHaveToGo</title>
+    <link rel="stylesheet" href="toilet.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.2/angular-resource.min.js"></script>
 
-<div ng-controller="ToiletController as toilet">
-  {{toilet.name}}
-</div>
+    <script src="js/application.js"></script>
+    <script src="js/javascripts/toilets.js"></script>
+    <script src="js/javascripts/index.controller.js"></script>
+    <script src="js/javascripts/new.controller.js"></script>
+    <script src="js/javascripts/update.controller.js"></script>
+    <script src="js/javascripts/show.controller.js"></script>
+    <script src="js/javascripts/toilet.factory.js"></script>
 
-<input ng-model="toiletVm.title">
+  </head>
+  <body class="container" data-ng-app="iHaveToGo">
+    <header class="jumbotron">
+    <h1><a data-ui-sref="toiletIndex">iHaveToGo</a></h1>
+    </header>
+    <main data-ui-view></main>
+  </body>
+</html>
 
-<div>
-</div>
 
-<!doctype html>
+
+
+
+
+<!-- <!doctype html>
 <html data-ng-app="iHaveToGo">
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
@@ -19,11 +39,32 @@
   <body>
     <h2>Toilet </h2>
     <div data-ng-controller="ToiletController as toilet">
-      <span> {{toilet.name}} {{toilet.location}} </span>
+      <span>
+        {{toilet.businessname}}
+  <br>  {{toilet.street}}
+  <br>  {{toilet.city}}
+  <br>  {{toilet.state}}
+  <br>  {{toilet.zip}}
+        </span>
+  <br>
+      <span> {{toilet.cleanliness}} </span>
+  <br>
+      <h3> Accessibility</h3>
+      <ul>
+        <li> {{toilet.handicapped}} </li>
+        <li> {{toilet.lgbt_friendly}} </li>
+        <li> {{toilet.unisex}} </li>
+        <li> {{toilet.changing_table}} </li>
+      </ul>
 
-      [ <a href="" ng-click="toilet.archive()">archive</a> ]
+  <br>
+      <span> {{toilet.wait_time}} </span>
+      <span> {{toilet.description}} </span>
+
+
+      [ <a href="" data-ng-click="toilet.archive()">archive</a> ]
      <ul class="unstyled">
-       <li ng-repeat="todo in todoList.todos">
+       <li ng-repeat="toilet in ihavetogo.toilets">
          <label class="checkbox">
 
       <label>iHaveToGo</label>
@@ -32,4 +73,20 @@
       <h1>Do You Have to Go? {{ihavetogobad}}!</h1>
     </div>
   </body>
-</html>
+
+
+
+  <div>Did you have a good experience using this toilet?<div>
+    <form action="action_page.php">
+    <input type="radio" name="satisfaction" value="Yes" checked>👌<br>
+    <input type="radio" name="satisfaction" value="Yes" checked><br>
+    <input type="radio" name="satisfaction" value="Yes" checked><br>
+    <input type="radio" name="satisfaction" value="No"> <br>
+    <input type="radio" name="satisfaction" value="No"> <br><br>
+    <input type="submit" value="Submit" onclick="alert('Thank you, your response has been flushed!')"
+    </form>
+
+
+
+
+</html> -->
