@@ -1,15 +1,25 @@
 //= require angular
 //= require angular-resource
 //= require angular-ui-router
-
 "use strict";
 
 (function(){
   angular
-    .module( "grumbles", [
-      "ngResource"
-    ]);
-}());
+  .module("ihavetogo", [
+    "ngResource"
+  ])
+  .controller("toilet_controller", ["$resource", ToiletController]);
+
+  function ToiletController($resource){
+    var vm = this;
+    vm.data = data;
+    var Toilet = $resource("/toilets/:id.json", {}, {
+        update: {method: "PUT"}
+    });
+    vm.data = Toilet.query();
+  }
+})();
+
 
 // "use strict";
 //
@@ -17,7 +27,7 @@
 //   angular
 //   .module("ihavetogo", [
 //     "ui.router",
-//     "ngresource"
+//     "ngResource"
 //   ])
 //   .config([
 //     "stateProvider",
@@ -102,42 +112,5 @@
 //       }
 //     }
 //   }
-//
-// })();
-//
-//
-
-
-
-// function ToiletController(toiletService) {
-//     var vm = this;
-//     vm.toilets = [];
-//     vm.createToilet = createToilet;
-//     vm.findToilet = findToilet;
-//     vm.updateToilet = updateToilet;
-//     vm.title = 'Toilets';
-//
-//     createToilet();
-//
-//     function createToilet() {
-//       return toiletService.createToilet().then(function(data){
-//           vm.toilets = data;
-//           return vm.toilets;
-//       });
-//     }
-//
-//     function findToilet() {
-//
-//     }
-//
-//     function updateToilet() {
-//
-//     }
-//
-//
-//
-//   }
 // }
-//
-//
 // })();

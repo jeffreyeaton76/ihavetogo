@@ -15,6 +15,7 @@
 //= require turbolinks
 
 
+
 "use strict";
 
 (function(){
