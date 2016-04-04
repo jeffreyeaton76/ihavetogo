@@ -9,6 +9,7 @@
 Toilet.destroy_all
 
 Toilet.create({
+  business_address: "US Botanic Garden",
   street: "100 Maryland Ave SW",
   city: "Washington",
   state: "DC",
@@ -24,6 +25,7 @@ Toilet.create({
   })
 
   Toilet.create({
+    business_address: "Museum of the American Indian",
     street: "4th St & Independence Ave SW",
     city: "Washington",
     state: "DC",
@@ -39,6 +41,7 @@ Toilet.create({
     })
 
   Toilet.create({
+    business_address: "National Air and Space Museum",
     street: "600 Independence Ave SW",
     city: "Washington",
     state: "DC",
@@ -54,6 +57,7 @@ Toilet.create({
     })
 
     Toilet.create({
+      business_address: "Hirshorn Museum",
       street: "700 Independence Ave SW",
       city: "Washington",
       state: "DC",
@@ -69,6 +73,7 @@ Toilet.create({
       })
 
     Toilet.create({
+      business_address: "Smithsonian Castle",
       street: "1000 Jefferson Dr SW",
       city: "Washington",
       state: "DC",
@@ -84,6 +89,7 @@ Toilet.create({
       })
 
     Toilet.create({
+      business_address: "Washington Monument ticket office",
       street: "2 15th St NW",
       city: "Washington",
       state: "DC",
