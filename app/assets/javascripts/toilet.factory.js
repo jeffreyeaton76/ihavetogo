@@ -2,14 +2,14 @@
 
 (function(){
   angular
-    .module( "toilets" )
+    .module( "ihavetogo" )
     .factory( "ToiletFactory", [
       "$resource",
-      FactoryFunction
+      ToiletFactoryFunction
     ]);
 
-  function FactoryFunction( $resource ){
-    return $resource( "http://localhost:3000/toilets/:id", {}, {
+  function ToiletFactoryFunction( $resource ){
+    return $resource( "/toilets/:id.json", {}, {
         update: { method: "PUT" }
     });
   }

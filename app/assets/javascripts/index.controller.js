@@ -3,7 +3,7 @@
 (function(){
 
   angular
-    .module( "toilets" )
+    .module( "ihavetogo" )
     .controller( "ToiletIndexController", [
       "ToiletFactory",
       ToiletIndexControllerFunction

@@ -14,15 +14,12 @@
 //= require jquery_ujs
 //= require turbolinks
 
-
-
 "use strict";
 
 (function(){
   angular
   .module("ihavetogo", [
-    "ui.router",
-    "toilets"
+    "ui.router"
   ])
   .config([
     "$stateProvider",
@@ -32,8 +29,8 @@
   function RouterFunction($stateProvider){
     $stateProvider
     .state("toiletIndex", {
-      url: "/toilets",
-      templateUrl: "index.html",
+      url: "/",
+      templateUrl: "/toilets/index.html",
       controller: "ToiletIndexController",
       controllerAs: "ToiletIndexViewModel"
     })
@@ -43,20 +40,23 @@
       controller: "ToiletNewController",
       controllerAs: "ToiletNewViewModel"
     })
-
     .state("toiletUpdate", {
       url: "/toilets/:id/update",
       templateUrl: "javascripts/toilets/update.html",
       controller: "ToiletUpdateController",
       controllerAs: "ToiletUpdateViewModel"
       })
-
     .state("toiletShow", {
       url: "/toilets/:id",
       templateUrl: "javascripts/toilets/show.html",
       controller: "ToiletShowController",
       controllerAs: "ToiletShowViewModel"
     });
-
   }
+
+  angular.module("ihavetogo").controller("ToiletIndexController", function(){
+    console.log("here")
+  })
+
 }());
+//= require index.controller

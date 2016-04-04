@@ -1,0 +1,43 @@
+
+  <div  data-ng-controller="ToiletIndexController as ToiletIndexViewModel">
+    <h1>iHaveToGo</h1>
+  </div>
+
+    <h2>Toilet </h2>
+  <div data-ng-repeat="toilet in ToiletIndexViewModel.toilets">
+      <span>
+        {{toilet.business_address}}
+  <br>  {{toilet.street}}
+  <br>  {{toilet.city}}
+  <br>  {{toilet.state}}
+  <br>  {{toilet.zip}}
+        </span>
+  <br>
+      <span> {{toilet.cleanliness}} </span>
+  <br>
+      <h3> Accessibility</h3>
+      <ul>
+        <li> {{toilet.handicapped}} </li>
+        <li> {{toilet.lgbt_friendly}} </li>
+        <li> {{toilet.unisex}} </li>
+        <li> {{toilet.changing_table}} </li>
+      </ul>
+
+  <br>
+      <span> {{toilet.wait_time}} </span>
+      <span> {{toilet.description}} </span>
+
+
+
+
+<!--
+      [ <a href="" data-ng-click="toilet.archive()">archive</a> ]
+     <ul class="unstyled">
+       <li ng-repeat="toilet in ihavetogo.toilets">
+         <label class="checkbox">
+
+      <label>iHaveToGo</label>
+      <input type="text" ng-model="ihavetogobad">
+      <hr>
+      <h1>Do You Have to Go? {{ihavetogobad}}!</h1> -->
+    </div>

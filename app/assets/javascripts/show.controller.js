@@ -2,7 +2,7 @@
 
 (function(){
   angular
-  .module("toilets")
+  .module("ihavetogo")
   .controller("ToiletShowController", [
     "ToiletFactory",
     "$stateParams",
