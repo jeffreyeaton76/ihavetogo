@@ -1,0 +1,272 @@
+* {
+    margin: 0;
+    padding: 0 auto;
+     box-sizing: border-box;
+     /*outline: 1px solid red;*/
+     /* remove safari custom button styling */
+     -webkit-appearance: none;
+     -moz-appearance: none;
+     appearance: none;
+     /* remove safari custom border radius */
+}
+a {
+  outline: 0;
+  display: block; /* make entire link box clickable */
+
+}
+
+select {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0px;
+  appearance: none;
+  border-radius: none;
+}
+
+/******* home page styling */
+
+body {
+  background-image: url('images/tiles.jpg');
+  background-size: 450px;
+}
+
+.homecontainer{
+  width: 100%;
+  margin: 0 auto;
+}
+
+.formcontainer{
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 150px;
+}
+
+img.hometoilet {
+  display: block;
+  width: 250px;
+  margin: 0 auto;
+}
+/************************************ Form page CSS */
+
+/**** CSS For toilet paper */
+img.paperroll {
+  display: block;
+  margin: 0 auto;
+  width: 900px;
+  margin-bottom: -350px;
+}
+
+.paper {
+  padding: 15px;
+  position: relative;
+  width: 630px;
+  height: 1100px;
+  background-color: white;
+  border-radius: 75px 75px 0px 0px;
+  -moz-border-radius: 60px 60px 0px 0px;
+  -webkit-border-radius: 60px 60px 0px 0px;
+  border: 0px solid #000000;
+  margin: 0 auto;
+  margin-bottom: 50px;
+
+  /* borders around paper */
+  border-top: solid black 3px;
+  border-right: solid black 3px;
+  border-left: solid black 3px;
+  border-bottom: dashed gray 3px;
+
+  /* adds gradient background */
+
+
+  background: rgba(255,255,255,1);
+  background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 3%, rgba(227,227,227,1) 10%, rgba(227,227,227,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(3%, rgba(255,255,255,1)), color-stop(10%, rgba(227,227,227,1)), color-stop(100%, rgba(227,227,227,1)));
+  background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 3%, rgba(227,227,227,1) 10%, rgba(227,227,227,1) 100%);
+  background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 3%, rgba(227,227,227,1) 10%, rgba(227,227,227,1) 100%);
+  background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 3%, rgba(227,227,227,1) 10%, rgba(227,227,227,1) 100%);
+  background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 3%, rgba(227,227,227,1) 10%, rgba(227,227,227,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e3e3e3', GradientType=0 );
+
+
+
+  background-origin:border-box; /* fix dashed line problem*/
+
+
+  /* adds shadow around paper */
+  -webkit-box-shadow: -12px 9px 8px 4px rgba(0,0,0,0.36);
+  -moz-box-shadow: -12px 9px 8px 4px rgba(0,0,0,0.36);
+  box-shadow: -12px 9px 8px 4px rgba(0,0,0,0.36);
+}
+
+/*** CSS For each individual toilet paper */
+.sheet {
+  position: relative;
+  width: 630px;
+  height: 400px;
+  background-color: rgba(230,230,230,1);
+  margin: 0 auto;
+  z-index: 100;
+  border-right: solid black 3px;
+  border-left: solid black 3px;
+  border-bottom: dashed gray 3px;
+  -webkit-box-shadow: -12px 9px 8px 4px rgba(0,0,0,0.36);
+  -moz-box-shadow: -12px 9px 8px 4px rgba(0,0,0,0.36);
+  box-shadow: -12px 9px 8px 4px rgba(0,0,0,0.36);
+
+}
+
+/** Text on toilet paper and form fields */
+
+/*font-family: 'Kalam', cursive;*/
+h2 {
+  text-align: center;
+  font-family: 'Permanent Marker', cursive;
+  font-weight: 100;
+  font-size: 60px;
+  margin-bottom: 10px;
+  width: 100%;
+  border-bottom: dashed gray 3px;
+}
+
+form {
+  font-family: 'Permanent Marker', cursive;
+  font-weight: 100;
+  font-size: 30px;
+}
+
+/* remove blue outline from active text-field in chrome */
+textarea:focus, input:focus{
+    outline: none;
+}
+
+input[type="text"]{
+  margin-top: 5px;
+  font-family: 'Kalam', cursive;
+  font-size: 30px;
+  width: 570px;
+  background-color: rgba(0,0,0,0);
+  border: none;
+}
+
+textarea {
+  width: 570px;
+  height: 100px;
+  font-family: 'Kalam', cursive;
+  font-size: 30px;
+  padding-top: 5px;
+  border: none;
+  background-color: rgba(0,0,0,0);
+  resize: none;
+}
+
+/* remove resizer button from text area */
+::-webkit-resizer{
+  display: none;
+}
+
+/* Change color of placeholder */
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: #C1C1C1;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color: #C1C1C1;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color: #C1C1C1;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #C1C1C1;
+}
+
+.cleanliness {
+  padding-top: 25px;
+}
+
+label > input{ /* HIDE RADIO */
+  visibility: hidden; /* Makes input not-clickable */
+  position: absolute; /* Remove input from document flow */
+}
+label > input + img{ /* IMAGE STYLES */
+  cursor:pointer;
+  border:2px solid transparent;
+  opacity: 0.2;
+}
+
+label > input:hover + img{ /* (RADIO CHECKED) IMAGE STYLES */
+  opacity: 0.6;
+}
+
+label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
+  opacity: 1;
+}
+
+.radioimage {
+  height: 280px;
+}
+
+/* checkbox styling */
+
+.checkbox_container {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.checklabel {
+  font-family: 'Kalam', cursive;
+  font-size: 30px;
+}
+
+input[type="checkbox"] {
+    display:none;
+}
+
+input[type="checkbox"] + label span{
+    display:inline-block;
+    width:290px;
+    padding-left: 50px;
+    /*padding-top: 7px; fixes spacing in firefox */
+    height: 50px;
+    vertical-align: middle;
+    background:url(images/checkbox.png) left top no-repeat;
+    background-size: 35px;
+    cursor: pointer;
+}
+
+
+input[type="checkbox"]:checked + label span{
+  background:url(images/check.png) left top no-repeat;
+  background-size: 35px;
+
+}
+
+/* dropdown styling */
+
+.dropdown {
+  font-family: 'Kalam', cursive;
+  font-size: 30px;
+  border: none;
+  width: 180px;
+  border: solid black 3px;
+  padding-top: 5px;
+  padding-left: 5px;
+  outline: 0;
+  background-color: transparent;
+  radius: 0px;
+}
+
+/**** Remove dotted outline from dropdown menu */
+select:-moz-focusring {
+  color:transparent;
+  text-shadow:0 0 0 #000; /* your normal text color here */
+}
+select:-moz-focusring * {
+  color:#000; /* your normal text color here */
+  text-shadow:none;
+}
+
+
+/* description styling */
+.description {
+  margin-top: 20px;
+}
