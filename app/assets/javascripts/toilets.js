@@ -1,8 +1,8 @@
-//= require angular
-//= require angular-resource
-
 "use strict";
 
-(function(){
+(function() {
+  angular
+  .module("toilets", [])
+  .controller("toilet_controller",)
 
 })();
