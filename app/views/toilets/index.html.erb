@@ -8,8 +8,23 @@
       {{toilet.street}}
     </div>
 
-<!-- SAMPLE code for a toilet create form
+SAMPLE code for a toilet create form
 <input type="text" data-ng-model="vm.new_toilet.street" />
 <label for="name">Street</label>
 
-<button type="button" id="submit" data-ng-click="vm.create()">Submit</button> -->
+<input type="text" data-ng-model="vm.new_toilet.city" />
+<label for="name">City</label>
+
+<input type="text" data-ng-model="vm.new_toilet.state" />
+<label for="name">State</label>
+
+<input type="text" data-ng-model="vm.new_toilet.zip" />
+<label for="name">Zip</label>
+
+<input type="integer" data-ng-model="vm.new_toilet.cleanliness" />
+<label for="name">Cleanliness</label>
+
+<input type="checkbox" data-ng-model="vm.new_toilet.handicapped" />
+<label for="name">Handicapped</label>
+
+<button type="button" id="submit" data-ng-click="vm.create()">Submit</button>
