@@ -5,8 +5,19 @@
 
 
     <div data-ng-repeat="toilet in vm.data">
-      {{toilet.street}}
+      <p>
+        {{toilet.street}}
+        {{toilet.city}}
+        {{toilet.state}}
+        {{toilet.zip}}
+        {{toilet.cleanliness}}
+        {{toilet.handicapped}}
+      </p>
+
     </div>
+    
+Show form when click add toilet button
+Hide form when click submit button
 
 SAMPLE code for a toilet create form
 <input type="text" data-ng-model="vm.new_toilet.street" />
