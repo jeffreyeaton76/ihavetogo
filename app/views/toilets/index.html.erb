@@ -1,0 +1,72 @@
+<%=stylesheet_link_tag "toilets", property: "stylesheet" %>
+<%= javascript_include_tag "toilets" %>
+  <div class="container" data-ng-app="ihavetogo">
+    <h1>iHaveToGo</h1>
+  </div>
+
+
+
+
+
+<!doctype html>
+<html data-ng-app="iHaveToGo">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script src="toilets.js"></script>
+    <link rel="stylesheet" href="toilet.scss">
+  </head>
+  <body>
+    <h2>Toilet </h2>
+    <div data-ng-controller="ToiletController as toilet">
+      <span>
+    <!-- <div data-ng-repeat="toilet in vm.data"> -->
+        {{toilet.businessname}}
+  <br>  {{toilet.street}}
+  <br>  {{toilet.city}}
+  <br>  {{toilet.state}}
+  <br>  {{toilet.zip}}
+        </span>
+  <br>
+      <span> {{toilet.cleanliness}} </span>
+  <br>
+      <h3> Accessibility</h3>
+      <ul>
+        <li> {{toilet.handicapped}} </li>
+        <li> {{toilet.lgbt_friendly}} </li>
+        <li> {{toilet.unisex}} </li>
+        <li> {{toilet.changing_table}} </li>
+      </ul>
+
+  <br>
+      <span> {{toilet.wait_time}} </span>
+      <span> {{toilet.description}} </span>
+</div>
+
+      [ <a href="" data-ng-click="toilet.archive()">archive</a> ]
+     <ul class="unstyled">
+       <li ng-repeat="toilet in ihavetogo.toilets">
+         <label class="checkbox">
+
+      <label>iHaveToGo</label>
+      <input type="text" ng-model="ihavetogobad">
+      <hr>
+      <h1>Do You Have to Go? {{ihavetogobad}}!</h1>
+    </div>
+  </body>
+
+
+
+  <div>Did you have a good experience using this toilet?<div>
+    <form action="action_page.php">
+    <input type="radio" name="satisfaction" value="Yes" checked>👌<br>
+    <input type="radio" name="satisfaction" value="Yes" checked><br>
+    <input type="radio" name="satisfaction" value="Yes" checked><br>
+    <input type="radio" name="satisfaction" value="No"> <br>
+    <input type="radio" name="satisfaction" value="No"> <br><br>
+    <input type="submit" value="Submit" onclick="alert('Thank you, your response has been flushed!')"
+    </form>
+
+
+
+
+</html> -->
