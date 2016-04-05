@@ -1,0 +1,65 @@
+<%= stylesheet_link_tag "toilets", property: "stylesheet" %>
+<%= javascript_include_tag "toilets" %>
+
+  <div class="container" data-ng-app="inventory">
+    <header class="jumbotron">
+      <h1>Inventory Tracker</h1>
+    </header>
+
+    <main data-ng-controller="inventory_controller as vm">
+      <h2>Total Value: ${{vm.total_value()}}</h2>
+      <input type="text" class="form-control" placeholder="Filter on..." data-ng-model="vm.filter_on" />
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <td data-ng-click="vm.is_descending = !(vm.is_descending)">
+              <span data-ng-if="vm.is_descending">z-a</span>
+              <span data-ng-if="!vm.is_descending">a-z</span>
+            </td>
+            <th data-ng-click="vm.sort_data_by('name')">Name</th>
+            <th data-ng-click="vm.sort_data_by('cost')">Cost</th>
+            <th data-ng-click="vm.sort_data_by('quantity')">Quantity</th>
+            <th data-ng-click="vm.sort_data_by('country')">Country of Origin</th>
+            <th>Notes</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-ng-repeat="product in vm.data | filter: vm.filter_on | orderBy: vm.sort_on : vm.is_descending">
+            <td>{{$index + 1}}</td>
+            <td>
+              <img data-ng-src="{{product.image_url}}" alt="#" />
+              <a data-ng-href="{{product.url}}" tabindex="-1">{{product.name}}</a>
+            </td>
+            <td>${{product.cost.toFixed(2)}}</td>
+            <td>
+              <input type="number" data-ng-model="product.quantity" />
+            </td>
+            <td>{{product.country}}</td>
+            <td>
+              <input type="text" data-ng-model="product.notes" />
+            </td>
+            <td data-ng-click="vm.destroy($index)">&cross;</td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <input type="text" data-ng-model="vm.new_product.name" placeholder="Name" />
+            </td>
+            <td>
+              <input type="number" data-ng-model="vm.new_product.cost" placeholder="Cost" />
+            </td>
+            <td>
+              <input type="number" data-ng-model="vm.new_product.quantity" placeholder="0" />
+            </td>
+            <td>
+              <input type="text" data-ng-model="vm.new_product.country" placeholder="Country" />
+            </td>
+            <td>
+              <input type="text" data-ng-model="vm.new_product.image_url" placeholder="Image URL" />
+            </td>
+            <td data-ng-click="vm.create()">&plus;</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+</div>

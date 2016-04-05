@@ -1,0 +1,75 @@
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+  <link href='https://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Permanent+Marker|Kalam' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <div class="formcontainer">
+    <img src="images/paperroll.png" class="paperroll" alt="paper roll">
+    <div class="paper">
+      <h2> New Toilet </h2>
+
+      <form>
+        Business Name: <br>
+        <input type="text" name="businessname" placeholder="Enter Name">
+        <br>
+        Address: <br>
+        <input type="text" name="address" placeholder="Enter Address" class="address">
+        <br>
+        Cleanliness: <br>
+        <div class="cleanliness">
+          <label>
+            <input type="radio" name="dirty" value="1" class="1">
+            <img src="images/1.png" class="radioimage">
+          </label>
+
+          <label>
+            <input type="radio" name="dirty" value="2" class="2">
+            <img src="images/2.png" class="radioimage">
+          </label>
+
+          <label>
+            <input type="radio" name="dirty" value="3" class="3">
+            <img src="images/3.png" class="radioimage">
+          </label>
+        </div>
+
+        Accessibility:
+        <div class="checkbox_container">
+          <input type="checkbox" name="handicap" value="false" id="checkbox1">
+          <label for="checkbox1" class="checklabel"><span>Handicap</span></label>
+
+
+          <input type="checkbox" name="LGBT" value="false" id="checkbox2">
+          <label for="checkbox2" class="checklabel"><span>LGBT Friendly</span></label>
+
+          <input type="checkbox" name="Unisex" value="false" id="checkbox3">
+          <label for="checkbox3" class="checklabel"><span>Unisex</span></label>
+
+
+          <input type="checkbox" name="Changing Table" value="false" id="checkbox4">
+          <label for="checkbox4" class="checklabel"><span>Changing Table</span></label>
+        </div>
+
+      <label>Wait Time:</label>
+      <select class="dropdown">
+        <option> 0 Minutes </option>
+        <option> 5 Minutes </option>
+        <option> 10 Minutes </option>
+        <option> 15 Minutes </option>
+      </select>
+
+    <div class="description">
+      Description:
+      <textarea name="description" placeholder="Enter Description" class="directions"></textarea>
+    </div>
+      </form>
+
+    </div>
+    <!-- <div class="sheet"></div>
+    <div class="sheet"></div> -->
+  </div>
+</body>
+
+</html>
