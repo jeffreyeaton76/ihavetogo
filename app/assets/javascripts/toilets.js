@@ -22,10 +22,11 @@
     "Toilet",
     indexCtrlFunction
   ])
-  // .controller("tcontroller", [
-  //   "$resource",
-  //   ToiletsController
-  // ]);
+  .controller("showCtrl", [
+    "Toilet",
+    "$stateParams",
+    showCtrlFunction
+  ])
 
   function RouterFunction($stateProvider) {
     $stateProvider
@@ -35,9 +36,17 @@
       controller: "indexCtrl",
       controllerAs: "indexVM"
     })
+    .state("new", {
+      url: "/new",
+      templateUrl: "/partials/toilet.new.html",
+      controller: "newCtrl",
+      controllerAs: "newVM"
+    })
     .state("show", {
       url: "/:id",
-      templateUrl: "/partials/toilet.show.html"
+      templateUrl: "/partials/toilet.show.html",
+      controller: "showCtrl",
+      controllerAs: "showVM"
     }); // end index view
   } // end RouterFunction
 
@@ -55,23 +64,15 @@
     indexVM.new_toilet = new Toilet;
   } // end indexCtrlFunction
 
-  // function ToiletsController($resource) {
-  //   var vm = this;
-  //   var Toilet = $resource("/toilets/:id.json", {}, {
-  //     update: {method: "PUT"}
-  //   });
-  //   vm.data = Toilet.query();
-  //
-  //   vm.destroy = function(toilet_index) {
-  //     vm.data.splice(product_index, 1);
-  //   } // end destroy
-  //
-  //   vm.new_toilet = {};
-  //   vm.create = function() {
-  //     Toilet.save(vm.new_toilet, function(response){
-  //       vm.data.push(response);
-  //       vm.new_toilet = {};
-  //     }); // end save
-  //   } // end create
-  // }
+  function showCtrlFunction(Toilet, $stateParams) {
+    var showVM = this;
+    Toilet.all.$promise.then(function() {
+      Toilet.all.forEach(function(toilet) {
+        if(toilet.id == $stateParams.id) {
+          showVM.toilet = toilet;
+        }
+      });
+    });
+  } // end showCtrlFunction
+
 })();
