@@ -35,7 +35,7 @@
   function RouterFunction($stateProvider) {
     $stateProvider
     .state("index", {
-      url: "/",
+      url: "",
       templateUrl: "/partials/toilet.index.html",
       controller: "indexCtrl",
       controllerAs: "indexVM"
@@ -79,10 +79,11 @@
 
   function indexCtrlFunction(Toilet) {
     var indexVM = this;
-    indexVM.toilets = Toilet.all;
+    indexVM.toilets = Toilet.query();
+    indexVM.switch = true;
     var mapOptions = {
-      zoom: 4,
-      center: new google.maps.LatLng(38.90529, -77.02489),
+      zoom: 15,
+      center: new google.maps.LatLng(38.8896352, -77.0268181),
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     var myMap = new google.maps.Map(document.getElementById('map'), mapOptions);

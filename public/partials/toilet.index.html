@@ -1,11 +1,16 @@
-  <div class="homecointainer">
-    <img src="images/logo.png" alt="logo" class="logo">
-    <a href="#" class="hometoilet"><img src="images/toilet.png" alt="toilet" class="hometoilet"></a>
-      <div class="arrow_container">
-        <a href="#" class="find_toilet"></a>
-        <a href = "#" class="new_toilet"></a>
-      </div>
-    </div>
+<div class="homecontainer">
+  <img src="images/logo.png" alt="logo" class="logo">
+  <a href="#" class="hometoilet"><img src="images/toilet.png" alt="toilet" class="hometoilet"></a>
+  <div class="arrow_container">
+    <a href = "#" class="find_toilet"></a>
+    <a href = "#" class="new_toilet"></a>
+  </div>
+</div>
 
-    <div data-ng-repeat="toilet in indexVM.toilets">
+<div class="map_container">
+  <form class="map_text">
+    Find A Toilet:
+    <input type="text" name="businessname" placeholder= "Enter an address here" class="map_placeholder">
+  </form>
+  <div id="map"></div>
 </div>
