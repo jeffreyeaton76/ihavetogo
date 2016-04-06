@@ -27,6 +27,10 @@
     "$stateParams",
     showCtrlFunction
   ])
+  .directive("toiletForm", [
+    "Toilet",
+    toiletFormFunction
+  ]); // end of angular model definitions
 
   function RouterFunction($stateProvider) {
     $stateProvider
@@ -35,12 +39,6 @@
       templateUrl: "/partials/toilet.index.html",
       controller: "indexCtrl",
       controllerAs: "indexVM"
-    })
-    .state("new", {
-      url: "/new",
-      templateUrl: "/partials/toilet.new.html",
-      controller: "newCtrl",
-      controllerAs: "newVM"
     })
     .state("show", {
       url: "/:id",
@@ -64,15 +62,33 @@
     indexVM.new_toilet = new Toilet;
   } // end indexCtrlFunction
 
+
   function showCtrlFunction(Toilet, $stateParams) {
     var showVM = this;
     Toilet.all.$promise.then(function() {
       Toilet.all.forEach(function(toilet) {
         if(toilet.id == $stateParams.id) {
           showVM.toilet = toilet;
-        }
-      });
-    });
+        } // end of params comparison
+      }); // end of Toilet.all each
+    }); // end of Toilet.all promise
   } // end showCtrlFunction
+
+  function toiletFormFunction(Toilet) {
+    return {
+      templateUrl: "partials/toilet.form.html",
+      scope: {
+        destination: "=",
+        formMethod: "@"
+      },
+      link: function(scope) {
+        Toilet.create = function() {
+          Toilet.save(scope.toilet, function(response) {
+            Toilet.all.push(response);
+          }); // end of save
+        } // end of create function
+      } // end of link function
+    } // end of return statement
+  } // end of toiletFormFunction
 
 })();
