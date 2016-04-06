@@ -388,7 +388,7 @@ p {
 }
 
 .checkmark {
-  background: url('images/checkmark.png') left top no-repeat;
+  background: url('checkmark.png') left top no-repeat;
   vertical-align: middle;
   display: inline-block;
   width: 500px;
