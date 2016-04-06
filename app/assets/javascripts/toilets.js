@@ -22,15 +22,19 @@
     "Toilet",
     indexCtrlFunction
   ])
+  .controller("mapCtrl", [
+    "Toilet",
+    mapCtrlFunction
+  ])
   .controller("showCtrl", [
     "Toilet",
     "$stateParams",
     showCtrlFunction
   ])
-  .directive("form", [
-  "Toilet",
-  toiletFormFunction
-]); // end of angular model definitions
+  .directive("tform", [
+    "Toilet",
+    toiletFormFunction
+  ]); // end of angular model definitions
 
   function RouterFunction($stateProvider) {
     $stateProvider
@@ -47,14 +51,14 @@
     .state("toiletMap", {
       url: "/map",
       templateUrl: "partials/toilet.map.html",
-      controller: "indexCtrl",
-      controllerAs: "indexVM"
+      controller: "mapCtrl",
+      controllerAs: "mapVM"
     })
     .state("new", {
       url: "/new",
-      templateUrl: "/partials/toilet.new.html",
-      controller: "newCtrl",
-      controllerAs: "newVM"
+      templateUrl: "/partials/toilet.new.html"
+      // controller: "newCtrl",
+      // controllerAs: "newVM"
     })
     .state("show", {
       url: "/:id",
@@ -73,17 +77,17 @@
         var markers = [];
         var infoWindow = new google.maps.InfoWindow();
         var geocoder = new google.maps.Geocoder();
-        var address = info.address;
+        var address = info.business_address;
         geocoder.geocode( { 'address': address}, function(results, status) {
           if (status == google.maps.GeocoderStatus.OK) {
             var marker = new google.maps.Marker({
               map: myMap,
               position: results[0].geometry.location,
-              title: info.city
+              title: info.business_name
             });
-            marker.content = '<div class="infoWindowContent"><a href="http://starbucks.com">' + info.desc + '</a></div>';
+            marker.content = '<div class="infoWindowContent"><a href="#/' + info.id + '">' + 'Overall Rating(1-5): ' + info.rating + '</a></div>';
             google.maps.event.addListener(marker, 'click', function(){
-              infoWindow.setContent('<h2>' + info.name + '</h2>' + marker.content);
+              infoWindow.setContent(info.business_name + marker.content);
               infoWindow.open(myMap, marker);
             });
             markers.push(marker);
@@ -93,29 +97,34 @@
       return Toilet;
   } // end toiletFactoryFunction
 
+
   function indexCtrlFunction(Toilet) {
     var indexVM = this;
     indexVM.toilets = Toilet.query();
-    indexVM.switch = true;
+    indexVM.new_toilet = new Toilet();
+  } // end indexCtrlFunction
+
+  function mapCtrlFunction(Toilet) {
+    var mapVM = this;
+    mapVM.toilets = Toilet.query();
     var mapOptions = {
       zoom: 15,
       center: new google.maps.LatLng(38.8896352, -77.0268181),
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     var myMap = new google.maps.Map(document.getElementById('map'), mapOptions);
-    indexVM.toilets.$promise.then(function(response){
-      for (i = 0; i < indexVM.toilets.length; i++){
-        Toilet.createMarker(indexVM.toilets[i], myMap);
+    mapVM.toilets.$promise.then(function(response){
+      for (var i = 0; i < mapVM.toilets.length; i++){
+        Toilet.createMarker(mapVM.toilets[i], myMap);
       }
     });
-
     // creates the markers' info windows
-    openInfoWindow = function(e, selectedMarker){
+    var openInfoWindow = function(e, selectedMarker){
       e.preventDefault();
       google.maps.event.trigger(selectedMarker, 'click');
     };
-    indexVM.new_toilet = new Toilet();
-  } // end indexCtrlFunction
+    mapVM.new_toilet = new Toilet();
+  } // end mapCtrlFunction
 
 
   function showCtrlFunction(Toilet, $stateParams) {
