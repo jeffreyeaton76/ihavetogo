@@ -1,5 +1,6 @@
 //= require angular
 //= require angular-resource
+//= require angular-ui-router.min
 
 "use strict";
 
