@@ -38,11 +38,11 @@
     })
     .state("aboutUs", {
       url: "/about",
-      templateUrl: "/partials/toilets.about.html"
+      templateUrl: "/partials/toilet.about.html"
     })
     .state("toiletMap", {
       url: "/map",
-      templateUrl: "partials/toilets.map.html",
+      templateUrl: "partials/toilet.map.html",
       controller: "indexCtrl",
       controllerAs: "indexVM"
     })
