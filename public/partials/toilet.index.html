@@ -1,3 +1,4 @@
+
   <div class="homecontainer">
     <img src="images/logo.png" alt="logo" class="logo">
     <a data-ui-sref="toiletMap" href="#" class="hometoilet"><img src="images/toilet.png" alt="toilet" class="hometoilet"></a>
@@ -7,5 +8,11 @@
       </div>
     </div>
 
-    <div data-ng-repeat="toilet in indexVM.toilets">
+
+<div class="map_container">
+  <form class="map_text">
+    Find A Toilet:
+    <input type="text" name="businessname" placeholder= "Enter an address here" class="map_placeholder">
+  </form>
+  <div id="map"></div>
 </div>
