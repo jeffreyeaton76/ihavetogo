@@ -11,6 +11,14 @@
   .controller("tcontroller", [
     "$resource",
     ToiletsController
+  ])  .controller("MapCtrl", [
+    "$resource",
+    "CityFactory",
+    MapCtrlFunction
+  ])
+  .directive("cityForm", [
+    "CityFactory",
+    cityFormFunction
   ]);
 
   function ToiletsController($resource) {
