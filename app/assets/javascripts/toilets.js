@@ -53,8 +53,8 @@
     .state("new", {
       url: "/new",
       templateUrl: "/partials/toilet.new.html",
-      controller: "newCtrl",
-      controllerAs: "newVM"
+      // controller: "newCtrl",
+      // controllerAs: "newVM"
     })
     .state("show", {
       url: "/:id",
