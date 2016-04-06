@@ -1,0 +1,45 @@
+<div class="toiletpapercontainer">
+  <img src="images/bathroomrack.jpg" class="paperroll" alt="paper roll">
+  <div class="showpaper">
+    <div class="gradient">
+      <h2> {{showVM.toilet.business_name}} </h2>
+      <div class="content_container">
+        <h3> Address: </h3>
+        <p> {{showVM.toilet.business_address}} </p>
+        <br>
+
+        <h3>Cleanliness: </h3>
+        <div class="cleanliness">
+          <img src="images/{{showVM.toilet.cleanliness}}.png" class="chosentoilet" alt="toilet_image">
+
+
+        </div>
+        <br>
+
+        <h3>Accessibility: </h3>
+        <div class="checkbox_container">
+          <span ng-show="showVM.toilet.handicapped" class="checkmark">Handicap</span>
+          <span ng-show="showVM.toilet.lgbt_friendly" class="checkmark">LGBT Friendly </span>
+          <span ng-show="showVM.toilet.unisex" class="checkmark">Unisex</span>
+          <span ng-show="showVM.toilet.changing_table" class="checkmark">Changing Table </span>
+        </div>
+
+        <h3>Wait Time:</h3>
+        <p> {{showVM.toilet.wait_time}} minutes</p>
+
+        <div class="description">
+          <h3>Description: </h3>
+          <p> {{showVM.toilet.description}} </p>
+        </div>
+      </div> <!-- close content_container-->
+
+    </div>
+  </div>
+  <div class="sheet content_container">
+    <h3 class="comment"> Comment </h3>
+    <p> {{toilet.comment}} </p>
+  </div>
+
+</div>
+
+<a href="#" class="back"> Back </a>

@@ -1,35 +1,78 @@
 //= require angular
 //= require angular-resource
+//= require angular-ui-router.min
 
 "use strict";
 
 (function() {
   angular
   .module("toilets", [
+    "ui.router",
     "ngResource"
   ])
-  .controller("tcontroller", [
+  .config([
+    "$stateProvider",
+    RouterFunction
+  ])
+  .factory("Toilet", [
     "$resource",
-    ToiletsController
-  ]);
+    toiletFactoryFunction
+  ])
+  .controller("indexCtrl", [
+    "Toilet",
+    indexCtrlFunction
+  ])
+  .controller("showCtrl", [
+    "Toilet",
+    "$stateParams",
+    showCtrlFunction
+  ])
 
-  function ToiletsController($resource) {
-    var vm = this;
+  function RouterFunction($stateProvider) {
+    $stateProvider
+    .state("index", {
+      url: "/",
+      templateUrl: "/partials/toilet.index.html",
+      controller: "indexCtrl",
+      controllerAs: "indexVM"
+    })
+    .state("new", {
+      url: "/new",
+      templateUrl: "/partials/toilet.new.html",
+      controller: "newCtrl",
+      controllerAs: "newVM"
+    })
+    .state("show", {
+      url: "/:id",
+      templateUrl: "/partials/toilet.show.html",
+      controller: "showCtrl",
+      controllerAs: "showVM"
+    }); // end index view
+  } // end RouterFunction
+
+  function toiletFactoryFunction($resource) {
     var Toilet = $resource("/toilets/:id.json", {}, {
-      update: {method: "PUT"}
+        update: {method: "PUT"}
+      });
+      Toilet.all = Toilet.query();
+      return Toilet;
+  } // end toiletFactoryFunction
+
+  function indexCtrlFunction(Toilet) {
+    var indexVM = this;
+    indexVM.toilets = Toilet.all;
+    indexVM.new_toilet = new Toilet;
+  } // end indexCtrlFunction
+
+  function showCtrlFunction(Toilet, $stateParams) {
+    var showVM = this;
+    Toilet.all.$promise.then(function() {
+      Toilet.all.forEach(function(toilet) {
+        if(toilet.id == $stateParams.id) {
+          showVM.toilet = toilet;
+        }
+      });
     });
-    vm.data = Toilet.query();
+  } // end showCtrlFunction
 
-    vm.destroy = function(toilet_index) {
-      vm.data.splice(product_index, 1);
-    } // end destroy
-
-    vm.new_toilet = {};
-    vm.create = function() {
-      Toilet.save(vm.new_toilet, function(response){
-        vm.data.push(response);
-        vm.new_toilet = {};
-      }); // end save
-    } // end create
-  }
 })();

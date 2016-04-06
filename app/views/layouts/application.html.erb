@@ -5,13 +5,16 @@
   <!-- <script type="text/javascript" src="angular.js"></script>
   <script type="text/javascript" src="toilets.js"></script> -->
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag "toilets" %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag "toilets" %>
+  <link href='https://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Permanent+Marker|Kalam' rel='stylesheet' type='text/css'>
   <%= csrf_meta_tags %>
 </head>
+
 <body data-ng-app="toilets">
-  <main data-ng-controller="tcontroller as vm">
-    <%= yield %>
-  </main>
+  <%= yield %>
 </body>
+
 </html>
