@@ -2,7 +2,6 @@
 //= require angular-resource
 //= require angular-ui-router.min
 
-"use strict";
 
 (function() {
   angular
@@ -73,17 +72,17 @@
         var markers = [];
         var infoWindow = new google.maps.InfoWindow();
         var geocoder = new google.maps.Geocoder();
-        var address = info.address;
+        var address = info.business_address;
         geocoder.geocode( { 'address': address}, function(results, status) {
           if (status == google.maps.GeocoderStatus.OK) {
             var marker = new google.maps.Marker({
               map: myMap,
               position: results[0].geometry.location,
-              title: info.city
+              title: info.business_name
             });
-            marker.content = '<div class="infoWindowContent"><a href="http://starbucks.com">' + info.desc + '</a></div>';
+            marker.content = '<div class="infoWindowContent"><a href="#/' + info.id + '">' + 'Overall Rating(1-5): ' + info.rating + '</a></div>';
             google.maps.event.addListener(marker, 'click', function(){
-              infoWindow.setContent('<h2>' + info.name + '</h2>' + marker.content);
+              infoWindow.setContent(info.business_name + marker.content);
               infoWindow.open(myMap, marker);
             });
             markers.push(marker);
@@ -108,7 +107,6 @@
         Toilet.createMarker(indexVM.toilets[i], myMap);
       }
     });
-
     // creates the markers' info windows
     openInfoWindow = function(e, selectedMarker){
       e.preventDefault();

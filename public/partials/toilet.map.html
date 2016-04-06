@@ -1,1 +1,10 @@
-This is where the map will go!
+
+<div class="map_container">
+  <form class="map_text">
+    Find A Toilet:
+    <input type="text" name="business_name" placeholder= "Enter an address here" class="map_placeholder">
+  </form>
+  <div id="map"></div>
+  <div id="class" ng-repeat="marker in indexVM.toilets">
+  <a href="#" ng-click="openInfoWindow($event, marker)">{{marker.name}}</a>
+</div>

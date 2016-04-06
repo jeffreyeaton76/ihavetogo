@@ -1,3 +1,5 @@
+<div data-city-form data-toilet="indexVM.new_toilet" data-form-method="create"></div>
+
 <div class="toiletpapercontainer">
     <img src="images/bathroomrack.jpg" class="paperroll" alt="paper roll">
     <div class="paper">
@@ -7,43 +9,45 @@
 
       <form>
         Business Name: <br>
-        <input type="text" name="businessname" placeholder= "Enter Name">
+        <input type="text" data-ng-model="toilet.business_name" />
+        <label for="business_name">Business Name</label>
         <br>
         Address: <br>
-        <input type="text" name="address" placeholder="Enter Address" class="address">
+        <input type="text" name="business_address" class="address" data-ng-model="toilet.business_address">
+        <label for="business_address">Business Address</label>
         <br>
         Cleanliness: <br>
         <div class="cleanliness">
           <label>
-            <input type="radio" name="dirty" value="1" class="1">
+            <input type="radio" name="dirty" data-ng-value="1" class="1" data-ng-model="toilet.cleanliness">
             <img src="images/1.png" class="radioimage" alt="dirty toilet">
           </label>
 
           <label>
-            <input type="radio" name="dirty" value="2" class="2">
+            <input type="radio" name="dirty" data-ng-value="2" class="2" data-ng-model="toilet.cleanliness">
             <img src="images/2.png" class="radioimage" alt="average toilet">
           </label>
 
           <label>
-            <input type="radio" name="dirty" value="3" class="3">
+            <input type="radio" name="dirty" data-ng-value="3" class="3" data-ng-model="toilet.cleanliness">
             <img src="images/3.png" class="radioimage" alt="clean toilet">
           </label>
         </div>
 
         Accessibility:
         <div class="checkbox_container">
-          <input type="checkbox" name="handicap" value="false" id="checkbox1">
+          <input type="checkbox" name="handicap" data-ng-value="false" id="checkbox1" data-ng-model="toilet.handicapped">
           <label for="checkbox1" class="checklabel"><span>Handicap</span></label>
 
 
-          <input type="checkbox" name="LGBT" value="false" id="checkbox2">
+          <input type="checkbox" name="LGBT" data-ng-value="false" id="checkbox2" data-ng-model="toilet.lgbt_friendly">
           <label for="checkbox2" class="checklabel"><span>LGBT Friendly</span></label>
 
-          <input type="checkbox" name="Unisex" value="false" id="checkbox3">
+          <input type="checkbox" name="Unisex" data-ng-value="false" id="checkbox3" data-ng-model="toilet.unisex">
           <label for="checkbox3" class="checklabel"><span>Unisex</span></label>
 
 
-          <input type="checkbox" name="Changing Table" value="false" id="checkbox4">
+          <input type="checkbox" name="Changing Table" data-ng-value="false" id="checkbox4" data-ng-model="toilet.changing_table">
           <label for="checkbox4" class="checklabel"><span>Changing Table</span></label>
         </div>
 
@@ -57,10 +61,10 @@
 
         <div class="description">
           Description:
-          <textarea name="description" placeholder="Enter Description" class="directions"></textarea>
+          <textarea name="description" class="directions" data-ng-model="toilet.description"></textarea>
         </div>
 
-        <input type="submit" name="submit" value="Create Toilet!" class="submit">
+        <button type="button" id="submit" data-ng-click="create()">Submit</button>
       </form>
     </div> <!-- close gradient container -->
     </div> <!-- close content_container-->
