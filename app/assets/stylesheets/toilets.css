@@ -28,7 +28,10 @@ body {
   background-image: url("tiles.jpg");
   background-size: 450px;
 }
-
+.logo {
+  margin: 0 auto;
+  display: block;
+}
 .homecontainer{
   width: 100%;
   margin: 0 auto;
