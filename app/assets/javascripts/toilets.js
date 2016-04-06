@@ -85,4 +85,21 @@
     });
   } // end showCtrlFunction
 
+  function toiletFormFunction(Toilet) {
+  return {
+    templateUrl: "partials/toilet.form.html",
+    scope: {
+      destination: "=",
+      formMethod: "@"
+    },
+    link: function(scope) {
+      Toilet.create = function() {
+        Toilet.save(scope.toilet, function(response) {
+          Toilet.all.push(response);
+        }); // end of save
+      } // end of create function
+    } // end of link function
+  } // end of return statement
+} // end of toiletFormFunction
+
 })();
