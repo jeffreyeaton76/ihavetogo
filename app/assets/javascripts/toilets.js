@@ -34,8 +34,10 @@
 
     vm.new_toilet = {};
     vm.create = function() {
-      vm.data.push(angular.copy(vm.new_toilet));
-      vm.new_toilet = {};
-    }
+      Toilet.save(vm.new_toilet, function(response){
+        vm.data.push(response);
+        vm.new_toilet = {};
+      }); // end save
+    } // end create
   }
 })();
