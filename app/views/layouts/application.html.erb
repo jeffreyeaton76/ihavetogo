@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head data-ng-app="toilets">
+<head>
   <title>Ihavetogo</title>
   <!-- <script type="text/javascript" src="angular.js"></script>
   <script type="text/javascript" src="toilets.js"></script> -->
@@ -8,7 +8,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body data-ng-app="toilets">
   This is the template page
   <%= yield %>
 </body>

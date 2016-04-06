@@ -31,9 +31,13 @@
     $stateProvider
     .state("index", {
       url: "/",
-      templateUrl: "partials/toilet.index.html",
+      templateUrl: "/partials/toilet.index.html",
       controller: "indexCtrl",
       controllerAs: "indexVM"
+    })
+    .state("show", {
+      url: "/:id",
+      templateUrl: "/partials/toilet.show.html"
     }); // end index view
   } // end RouterFunction
 

@@ -1,5 +1,12 @@
 This is the index directive.
-<div data-ng-controller="indexCtrl">
-  This is inside the index directive.
+<div data-ng-repeat="toilet in indexVM.toilets">
+  <p>
+        {{toilet.street}}
+        {{toilet.city}}
+        {{toilet.state}}
+        {{toilet.zip}}
+        {{toilet.cleanliness}}
+        {{toilet.handicapped}}
+  </p>
 
 </div>
