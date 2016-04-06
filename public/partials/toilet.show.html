@@ -1,33 +1,36 @@
+{{showVM.toilet.business_name}}
 <div class="toiletpapercontainer">
   <img src="images/bathroomrack.jpg" class="paperroll" alt="paper roll">
   <div class="showpaper">
     <div class="gradient">
-      <h2> Starbucks Toilet </h2>
+      <h2> {{showVM.toilet.business_name}} </h2>
       <div class="content_container">
         <h3> Address: </h3>
-        <p> 25 Massachusetts Avenue NW. Suite 900. Washington, DC 20001 </p>
+        <p> {{toilet.business_address}} </p>
         <br>
 
         <h3>Cleanliness: </h3>
         <div class="cleanliness">
-          <img src="images/1.png" class="chosentoilet" alt="dirty toilet">
+          <img src="images/{{toilet.cleanliness}}.png" class="chosentoilet" alt="toilet_image">
+
+
         </div>
         <br>
 
         <h3>Accessibility: </h3>
         <div class="checkbox_container">
-          <span class="checkmark">Handicap </span>
-          <span class="checkmark">LGBT Friendly </span>
-          <span class="checkmark">Unisex</span>
-          <span class="checkmark">Changing Table </span>
+          <span ng-show="{{toilet.handicapped}}" class="checkmark">Handicap</span>
+          <span ng-show="{{toilet.lgbt_friendly}}" class="checkmark">LGBT Friendly </span>
+          <span ng-show="{{toilet.unisex}}" class="checkmark">Unisex</span>
+          <span ng-show="{{toilet.changing_table}}" class="checkmark">Changing Table </span>
         </div>
 
         <h3>Wait Time:</h3>
-        <p> 15 Minutes </p>
+        <p> {{toilet.wait_time}} </p>
 
         <div class="description">
           <h3>Description: </h3>
-          <p> The toilet was pretty dirty </p>
+          <p> {{toilet.description}} </p>
         </div>
       </div> <!-- close content_container-->
 
@@ -35,6 +38,7 @@
   </div>
   <div class="sheet content_container">
     <h3 class="comment"> Comment </h3>
+    <p> {{toilet.comment}} </p>
   </div>
 
 </div>
