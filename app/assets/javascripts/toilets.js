@@ -27,10 +27,10 @@
     "$stateParams",
     showCtrlFunction
   ])
-  .directive("toiletForm", [
-    "Toilet",
-    toiletFormFunction
-  ]); // end of angular model definitions
+  .directive("form", [
+  "Toilet",
+  toiletFormFunction
+]); // end of angular model definitions
 
   function RouterFunction($stateProvider) {
     $stateProvider
