@@ -41,10 +41,62 @@ body {
 }
 
 img.hometoilet {
-  display: block;
-  width: 250px;
+  width: 300px;
+  margin-left: 50px;
+}
+
+a.hometoilet {
+display: block;
+width: 350px;
+margin: 0 auto;
+ }
+
+.arrow_container {
+  width: 1100px;
   margin: 0 auto;
 }
+a.find_toilet {
+  float: left;
+  background-image: url('findtoilet.png');
+  background-size: 400px;
+  width: 400px;
+  height: 300px;
+  background-repeat: no-repeat;
+  margin-top: -450px;
+}
+
+
+a.find_toilet:hover {
+  float: left;
+  background-image: url('findtoiletglow.png');
+  background-size: 400px;
+  width: 400px;
+  height: 300px;
+  background-repeat: no-repeat;
+  margin-top: -450px;
+}
+
+ a.new_toilet {
+   float: right;
+   background-image: url('addtoilet.png');
+   background-size: 400px;
+   width: 400px;
+   height: 300px;
+   background-repeat: no-repeat;
+   margin-top: -450px;
+ }
+
+ a.new_toilet:hover {
+   float: right;
+   background-image: url('addtoiletglow.png');
+   background-size: 400px;
+   width: 400px;
+   height: 300px;
+   background-repeat: no-repeat;
+   margin-top: -450px;
+ }
+
+
 /************************************ Form page CSS */
 
 /**** CSS For toilet paper */
