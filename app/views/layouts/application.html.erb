@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head data-ng-app="toilets">
   <title>Ihavetogo</title>
   <!-- <script type="text/javascript" src="angular.js"></script>
   <script type="text/javascript" src="toilets.js"></script> -->
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag "toilets" %>
   <%= csrf_meta_tags %>
 </head>
-<body data-ng-app="toilets">
-  <main data-ng-controller="tcontroller as vm">
-    <%= yield %>
-  </main>
+<body>
+  This is the template page
+  <%= yield %>
 </body>
+
 </html>

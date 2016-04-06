@@ -7,30 +7,67 @@
 (function() {
   angular
   .module("toilets", [
+    "ui.router",
     "ngResource"
   ])
-  .controller("tcontroller", [
+  .config([
+    "$stateProvider",
+    RouterFunction
+  ])
+  .factory("Toilet", [
     "$resource",
-    ToiletsController
-  ]);
+    toiletFactoryFunction
+  ])
+  .controller("indexCtrl", [
+    "Toilet",
+    indexCtrlFunction
+  ])
+  // .controller("tcontroller", [
+  //   "$resource",
+  //   ToiletsController
+  // ]);
 
-  function ToiletsController($resource) {
-    var vm = this;
+  function RouterFunction($stateProvider) {
+    $stateProvider
+    .state("index", {
+      url: "/",
+      templateUrl: "partials/toilet.index.html",
+      controller: "indexCtrl",
+      controllerAs: "indexVM"
+    }); // end index view
+  } // end RouterFunction
+
+  function toiletFactoryFunction($resource) {
     var Toilet = $resource("/toilets/:id.json", {}, {
-      update: {method: "PUT"}
-    });
-    vm.data = Toilet.query();
+        update: {method: "PUT"}
+      });
+      Toilet.all = Toilet.query();
+      return Toilet;
+  } // end toiletFactoryFunction
 
-    vm.destroy = function(toilet_index) {
-      vm.data.splice(product_index, 1);
-    } // end destroy
+  function indexCtrlFunction(Toilet) {
+    var indexVM = this;
+    indexVM.toilets = Toilet.all;
+    indexVM.new_toilet = new Toilet;
+  } // end indexCtrlFunction
 
-    vm.new_toilet = {};
-    vm.create = function() {
-      Toilet.save(vm.new_toilet, function(response){
-        vm.data.push(response);
-        vm.new_toilet = {};
-      }); // end save
-    } // end create
-  }
+  // function ToiletsController($resource) {
+  //   var vm = this;
+  //   var Toilet = $resource("/toilets/:id.json", {}, {
+  //     update: {method: "PUT"}
+  //   });
+  //   vm.data = Toilet.query();
+  //
+  //   vm.destroy = function(toilet_index) {
+  //     vm.data.splice(product_index, 1);
+  //   } // end destroy
+  //
+  //   vm.new_toilet = {};
+  //   vm.create = function() {
+  //     Toilet.save(vm.new_toilet, function(response){
+  //       vm.data.push(response);
+  //       vm.new_toilet = {};
+  //     }); // end save
+  //   } // end create
+  // }
 })();
