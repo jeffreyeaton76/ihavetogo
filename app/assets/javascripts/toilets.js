@@ -36,6 +36,16 @@
       controller: "indexCtrl",
       controllerAs: "indexVM"
     })
+    .state("aboutUs", {
+      url: "/about",
+      templateUrl: "/partials/toilets.about.html"
+    })
+    .state("toiletMap", {
+      url: "/map",
+      templateUrl: "partials/toilets.map.html",
+      controller: "indexCtrl",
+      controllerAs: "indexVM"
+    })
     .state("new", {
       url: "/new",
       templateUrl: "/partials/toilet.new.html",
