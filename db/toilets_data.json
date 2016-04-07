@@ -6,7 +6,7 @@
   "unisex": false,
   "changing_table": true,
   "rating": 4,
-  "wait_time": 0,
+  "wait_time": "0",
   "description": "Located near the back entrance. If you enter through the main entrance, you need to pass through the jungle exhibit to find it. Generally pretty quiet except during festivals."
 },
 {"business_name": "Museum of the American Indian",
@@ -17,7 +17,7 @@
   "unisex": false,
   "changing_table": true,
   "rating": 3,
-  "wait_time": 0,
+  "wait_time": "0",
   "description": "Located near the food court on the first floor. Rarely a wait unless it's lunch time."
 },
 {"business_name": "National Air and Space Museum",
@@ -28,7 +28,7 @@
   "unisex": false,
   "changing_table": false,
   "rating": 3,
-  "wait_time": 5,
+  "wait_time": "5",
   "description": "This museum is almost always busy, so there tends to be a line for the restroom."
 },
 {"business_name": "Hirshorn Museum",
@@ -39,7 +39,7 @@
   "unisex": false,
   "changing_table": false,
   "rating": 4,
-  "wait_time": 0,
+  "wait_time": "0",
   "description": "Located in the basement. Usually empty."
 },
 {"business_name": "Smithsonian Castle",
@@ -50,7 +50,7 @@
   "unisex": false,
   "changing_table": true,
   "rating": 2,
-  "wait_time": 5,
+  "wait_time": "5",
   "description": "Use as a last option. Not cleaned often enough for the number of people using it each day."
 },
 {"business_name": "Washington Monument ticket office",
@@ -61,7 +61,7 @@
   "unisex": false,
   "changing_table": false,
   "rating": 1,
-  "wait_time": 5,
+  "wait_time": "5",
   "description": "Small, crowded, not cleaned often enough."
 }
 ]

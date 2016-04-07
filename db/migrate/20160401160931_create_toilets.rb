@@ -11,7 +11,7 @@ class CreateToilets < ActiveRecord::Migration
       t.boolean :unisex
       t.boolean :changing_table
       t.integer :rating
-      t.integer :wait_time
+      t.string :wait_time
       t.string  :description
 
       t.timestamps null: false
