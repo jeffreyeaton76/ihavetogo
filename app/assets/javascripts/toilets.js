@@ -90,7 +90,7 @@
             position: results[0].geometry.location,
             title: info.business_name
           });
-          marker.content = '<div class="infoWindowContent"><a href="#/toilet/' + info.id + '">' + 'Overall Rating(1-5): ' + info.rating + '</a></div>';
+          marker.content = '<div class="infoWindowContent"><a href="#/toilet/' + info.id + '">' + 'View Toilet!</a></div>';
           google.maps.event.addListener(marker, 'click', function(){
             infoWindow.setContent(info.business_name + marker.content);
             infoWindow.open(myMap, marker);
