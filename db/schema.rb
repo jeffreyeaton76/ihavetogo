@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20160405195602) do
     t.boolean  "unisex"
     t.boolean  "changing_table"
     t.integer  "rating"
-    t.integer  "wait_time"
+    t.string   "wait_time"
     t.string   "description"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
