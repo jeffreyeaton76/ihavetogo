@@ -10,7 +10,7 @@
         <form>
           Business Name: <br>
           <input type="text"  data-ng-model="newVM.new_toilet.business_name" placeholder="Enter Name"/>
-          <br>
+          <br> <!-- Boo for br -->
           Address: <br>
           <input type="text" name="business_address" class="address" data-ng-model="newVM.new_toilet.business_address" placeholder="Enter Address">
           <br>
@@ -25,6 +25,27 @@
               <input type="radio" name="dirty" data-ng-value="2" class="2" data-ng-model="newVM.new_toilet.cleanliness">
               <img src="images/2.png" class="radioimage" alt="average toilet">
             </label>
+
+            <!--
+<script>
+function newController(){
+  vm.toilet_images = [
+    "dirty",
+    "average",
+    "clean"
+  ]
+}
+</script>
+<div class="cleanliness">
+
+  <label data-ng-repeat="cleanliness in newVM.toilet_images">
+    <input type="radio" name="dirty" data-ng-value="{{$index + 1}}" class="{{$index + 1}}" data-ng-model="newVM.new_toilet.cleanliness" />
+    <img data-ng-src="images/{{$index + 1}}.png" class="radioimage" alt="{{cleanliness}} toilet" />
+  </label>
+
+</div>
+
+            -->
 
             <label>
               <input type="radio" name="dirty" data-ng-value="3" class="3" data-ng-model="newVM.new_toilet.cleanliness">
