@@ -12,6 +12,7 @@
   ])
   .config([
     "$stateProvider",
+    "$locationProvider",
     RouterFunction
   ])
   .factory("Toilet", [
@@ -41,10 +42,11 @@
     toiletFormFunction
   ]); // end of angular model definitions
 
-  function RouterFunction($stateProvider) {
+  function RouterFunction($stateProvider, $locationProvider) {
+    $locationProvider.html5Mode(true);
     $stateProvider
     .state("index", {
-      url: "",
+      url: "/",
       templateUrl: "/partials/toilet.index.html",
       controller: "indexCtrl",
       controllerAs: "indexVM"

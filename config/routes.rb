@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root "toilets#index"
+  get "*path" => "toilets#index"
   resources :toilets
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
