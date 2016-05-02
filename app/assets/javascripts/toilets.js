@@ -12,6 +12,7 @@
   ])
   .config([
     "$stateProvider",
+    "$locationProvider",
     RouterFunction
   ])
   .factory("Toilet", [
@@ -41,10 +42,11 @@
     toiletFormFunction
   ]); // end of angular model definitions
 
-  function RouterFunction($stateProvider) {
+  function RouterFunction($stateProvider, $locationProvider) {
+    $locationProvider.html5Mode(true);
     $stateProvider
     .state("index", {
-      url: "",
+      url: "/",
       templateUrl: "/partials/toilet.index.html",
       controller: "indexCtrl",
       controllerAs: "indexVM"
@@ -90,7 +92,7 @@
             position: results[0].geometry.location,
             title: info.business_name
           });
-          marker.content = '<div class="infoWindowContent"><a href="#/toilet/' + info.id + '">' + 'View Toilet!</a></div>';
+          marker.content = '<div class="infoWindowContent"><a href="toilet/' + info.id + '">' + 'View Toilet!</a></div>';
           google.maps.event.addListener(marker, 'click', function(){
             infoWindow.setContent(info.business_name + marker.content);
             infoWindow.open(myMap, marker);
