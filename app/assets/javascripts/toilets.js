@@ -76,6 +76,7 @@
   } // end RouterFunction
 
   function toiletFactoryFunction($resource) {
+    // collects locations from DB
     var Toilet = $resource("/toilets/:id.json", {}, {
       update: {method: "PUT"}
     });
@@ -85,6 +86,8 @@
       var infoWindow = new google.maps.InfoWindow();
       var geocoder = new google.maps.Geocoder();
       var address = info.business_address;
+      
+    //applies geocoder service to addresses in db; creates markers and their info windows
       geocoder.geocode( { 'address': address}, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
           var marker = new google.maps.Marker({
@@ -111,7 +114,6 @@
     newVM.create = function(){
       newVM.new_toilet.$save().then(function(toilet){
         Toilet.createMarker(toilet);
-        // does createMarker fire async? can we attach a promise?
         $state.go("toiletMap")
       })
     }
@@ -126,15 +128,17 @@
   function mapCtrlFunction(Toilet) {
     var mapVM = this;
     mapVM.toilets = Toilet.query();
+    //sets map options
     var mapOptions = {
       zoom: 15,
       center: new google.maps.LatLng(38.8896352, -77.0268181),
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
+    //creates map
     var myMap = new google.maps.Map(document.getElementById('map'), mapOptions);
     mapVM.toilets.$promise.then(function(response){
       console.log(response);
-
+    //populates map with markers
       for (var i = 0; i < response.length; i++){
         Toilet.createMarker(response[i], myMap);
       }
