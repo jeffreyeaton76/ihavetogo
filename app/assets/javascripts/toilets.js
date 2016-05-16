@@ -68,7 +68,7 @@
       controllerAs: "newVM"
     })
     .state("show", {
-      url: "/toilet/:id",
+      url: "/toilets/:id",
       templateUrl: "/partials/toilet.show.html",
       controller: "showCtrl",
       controllerAs: "showVM"
@@ -79,27 +79,47 @@
     var Toilet = $resource("/toilets/:id.json", {}, {
       update: {method: "PUT"}
     });
+    var markers = [];
     Toilet.all = Toilet.query();
     Toilet.createMarker = function(info, myMap){
-      var markers = [];
+      var marker;
       var infoWindow = new google.maps.InfoWindow();
       var geocoder = new google.maps.Geocoder();
       var address = info.business_address;
-      geocoder.geocode( { 'address': address}, function(results, status) {
-        if (status == google.maps.GeocoderStatus.OK) {
-          var marker = new google.maps.Marker({
-            map: myMap,
-            position: results[0].geometry.location,
-            title: info.business_name
-          });
-          marker.content = '<div class="infoWindowContent"><a href="toilet/' + info.id + '">' + 'View Toilet!</a></div>';
-          google.maps.event.addListener(marker, 'click', function(){
-            infoWindow.setContent(info.business_name + marker.content);
-            infoWindow.open(myMap, marker);
-          });
-          markers.push(marker);
-        }
-      });
+      //if lat/long are not in the DB already get them from Google
+      if (info.lat === null){
+        geocoder.geocode( { 'address': address}, function(results, status) {
+          if (status == google.maps.GeocoderStatus.OK) {
+            marker = new google.maps.Marker({
+              map: myMap,
+              position: results[0].geometry.location,
+              title: info.business_name
+            });
+            marker.content = '<div class="infoWindowContent"><a href="toilet/' + info.id + '">' + 'View Toilet!</a></div>';
+            google.maps.event.addListener(marker, 'click', function(){
+              infoWindow.setContent(info.business_name + marker.content);
+              infoWindow.open(myMap, marker);
+            });
+            markers.push(marker);
+            Toilet.update({lat: results[0].geometry.location.lat(), long: results[0].geometry.location.lng()}, function(){
+            });
+          }
+        });
+      }
+      //else use the lat and long in the DB to place the marker
+      else {
+        marker = new google.maps.Marker({
+          map: myMap,
+          position: new google.maps.LatLng(info.lat, info.long),
+          title: info.business_name
+        });
+        marker.content = '<div class="infoWindowContent"><a href="toilet/' + info.id + '">' + 'View Toilet!</a></div>';
+        google.maps.event.addListener(marker, 'click', function(){
+          infoWindow.setContent(info.business_name + marker.content);
+          infoWindow.open(myMap, marker);
+        });
+        markers.push(marker);
+      }
     };
     return Toilet;
   } // end toiletFactoryFunction
@@ -111,7 +131,6 @@
     newVM.create = function(){
       newVM.new_toilet.$save().then(function(toilet){
         Toilet.createMarker(toilet);
-        // does createMarker fire async? can we attach a promise?
         $state.go("toiletMap")
       })
     }
@@ -133,8 +152,6 @@
     };
     var myMap = new google.maps.Map(document.getElementById('map'), mapOptions);
     mapVM.toilets.$promise.then(function(response){
-      console.log(response);
-
       for (var i = 0; i < response.length; i++){
         Toilet.createMarker(response[i], myMap);
       }

@@ -17,6 +17,7 @@ class ToiletsController < ApplicationController
   end
 
   def update
+    console.log("hey hey you're a monkey!!!" + params[:id]);
     @toilet = Toilet.find(params[:id])
     @toilet.update!(toilet_params)
     render json: @toilet, status: :ok

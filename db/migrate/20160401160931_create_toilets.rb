@@ -1,10 +1,10 @@
 class CreateToilets < ActiveRecord::Migration
   def change
     create_table :toilets do |t|
-      t.string  :street
-      t.string  :city
-      t.string  :state
-      t.string  :zip
+      t.string  :business_name
+      t.string  :business_address
+      t.float   :lat
+      t.float   :long
       t.integer :cleanliness
       t.boolean :handicapped
       t.boolean :lgbt_friendly
