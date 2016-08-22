@@ -151,6 +151,8 @@
     mapVM.new_toilet = new Toilet();
   } // end mapCtrlFunction
 
+  // At this point, may not be a bad idea to move the different components into different files
+
 
   function showCtrlFunction(Toilet, $stateParams) {
     var showVM = this;

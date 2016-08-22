@@ -7,6 +7,7 @@
      -webkit-appearance: none;
      -moz-appearance: none;
      appearance: none;
+     /* You don't really need these anymore. */
      /* remove safari custom border radius */
 }
 a {
